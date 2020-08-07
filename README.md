@@ -1,5 +1,7 @@
 # Library test app
 
+This is a basic library tool. It maintains a database of books, with a UI to filter books by Author. API endpoints are also supplied for retrieving all books and for adding books to the database.
+
 ## Installation
 
 ```
