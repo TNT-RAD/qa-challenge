@@ -7,8 +7,6 @@ app = flask.Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-api_key = 'VGhpcyBrZXkgaXMgc3VwZXIgc2VjcmV0ISEgRG8gTk9UIHNoYXJlLg=='
-
 def dict_factory(cursor, row):
     d = {}
     for idx, col in enumerate(cursor.description):
