@@ -32,3 +32,10 @@ Adds a book to the database. Takes query parmeters:
 - author
 - first_sentence
 - title
+
+# Challenge Details
+
+
+1. Look through this projects issue tracker to find an issue to work on.
+2. Submit a Pull Request to this repository with your changes for review, watch out for comments/feedback to see if things need improvement.
+3. Once your PR has been reviewed and merged, wait for feedback from recruiter as for next steps.
