@@ -1,61 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AuthorForm.css';
 
-export class AuthorForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-          author: '',
-          results: []
-      }
+export const AuthorForm = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [authorData, setAuthorData] = useState([]);
 
-      this.handleChange = this.handleChange.bind(this)
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  const handleSearchTermChange = (event) => {
+    setSearchTerm(event.target.value);
+  }
 
-    handleChange(event) {
-        this.setState({author: event.target.value});
-      }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch(`http://127.0.0.1:5000/api/books/all`);
+      const data = await response.json();
+      setAuthorData(data);
 
-    handleSubmit(event) {
-      event.preventDefault();
-      fetch(`http://127.0.0.1:5000/api/books/all`)
-        .then(res => res.json())
-        .then(data => this.setState({results:
-            data.filter(
-                entry => entry.author.includes(this.state.author)
-            )
-        }))
-    }
-
-    renderData() {
-        return this.state.results.map((book, index) => {
-            return (
-               <tr key={book.title}>
-                  <td>{book.title}</td>
-                  <td>{book.author}</td>
-               </tr>
-            )
-         })
-      }
-
-    render() {
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Author:
-            <input type="text" onChange={this.handleChange}></input>
-          </label>
-          <input type="submit" value="Submit" />
-          <br/>
-          <div id='resultsContainer'>
-            <table id='results'>
-                <tbody>
-                    {this.renderData()}
-                </tbody>
-            </table>
-          </div>
-        </form>
-      );
+    } catch(error) {
+      console.error('Error:', error);
     }
   }
+
+  const RenderData = () => {
+    return authorData.map((book) => {
+      return (
+        <tr key={book.title}>
+          <td>{book.title}</td>
+          <td>{book.author}</td>
+        </tr>
+      )
+    })
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Author:
+        <input type="text" onChange={handleSearchTermChange}></input>
+      </label>
+
+      <input type="submit" value="Submit" />
+
+      <br/>
+
+      <div id='resultsContainer'>
+        <table id='results'>
+          <tbody>
+            <RenderData />
+          </tbody>
+        </table>
+      </div>
+    </form>
+  );
+}
