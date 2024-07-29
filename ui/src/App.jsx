@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { AuthorForm } from './authorform.js'
+import { AuthorForm } from './AuthorForm.jsx'
 
 function App() {
   return (

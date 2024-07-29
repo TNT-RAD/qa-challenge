@@ -1,5 +1,5 @@
 import React from 'react';
-import './authorform.css';
+import './AuthorForm.css';
 
 export class AuthorForm extends React.Component {
     constructor(props) {
