@@ -1,4 +1,4 @@
-# Library Test Application
+# QA Challenge - Library Test Application
 
 This is a sample application for a basic library tool. It maintians a database of books, with a UI to filter books by author. API endpoints are also supplied for retrieving all books and for adding books to the database.
 
