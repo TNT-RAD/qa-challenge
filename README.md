@@ -35,22 +35,23 @@ Adds a book to the database. Takes query parmeters:
 
 # Challenge Details
 
-This application has various bugs and security issues which you are not expected to fix. The goal of this challenge is to write automated tests that expose issues in the sample application.
+The goal of this challenge is to write and execute a test plan to identify bugs in this application. Note that you are not expected to fix any of the bugs that you find. Your response should consist of the following:
 
-Write a Python program that implements unit tests for this application, subject to the following constraints:
-
-1. The program must be executable from the command line
-2. The program must display a summary of test results upon completion
-3. The program must give some indication of progress while executing
-
-Additionally, document the following:
-
-1. A summary of items tested by your program
-2. A summary of problems in the sample application found by your program
+1. A test plan detailing the tests that should be conducted in order to rigorously test the application UI. This can be in any format you like, but you should consider adding at least the following for each test:
+    1. Inputs and any expected outputs
+    1. Any expected validation errors
+    1. Pass and failure conditions
+    1. Brief explanations for the above to explain your reasoning
+1. A test report detailing the results of manually running your tests on the application. This can be in any format you like, but you should consider adding at least the following:
+    1. A summary of assumptions you make, including where you felt a particular requirement could be interpreted multiple ways
+    1. A summary of items you tested
+    1. A summary of problems you found in the application
 
 For bonus points, you can optionally complete the following tasks:
 
-1. Implement additional unit tests for the sample application UI, and document items tested and problems found
-2. Document issues with the UI functionality, API design, code structure, or anything else in the sample application that you consider problematic but that is not covered by your tests
-
-Document any assumptions you make, including where you felt a particular requirement could be interpreted multiple ways.
+1. Expand your test plan and test report to test the application API as well as the UI
+1. Write automated tests for the API and / or UI of this application. You should use the Python language, but may use any testing frameworks and libraries you like
+1. Perform a review of the application codebase, documenting any issues you find, such as:
+    1. coding style
+    1. correctness
+    1. security issues
